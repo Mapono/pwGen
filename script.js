@@ -79,9 +79,16 @@ function generatePassword() {
     console.log(charSet)
   }
 
-  for (var i = 0; i < guaranteedCharacters.length; i++) {
-    result[i] = guaranteedCharacters[i];
+  var length = length;
+  var result = [];
+  while (length > 0) {
+  const rndIndex = Math.floor(Math.random() * charSet.length);
+  if (!result.includes(charSet[rndIndex])) {
+  result.push(charSet[rndIndex]);
+  length--;
   }
+}
+console.log('passwordText', result);
 
 return result.join("");
 }
